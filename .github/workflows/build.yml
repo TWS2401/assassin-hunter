@@ -23,7 +23,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: assassin-hunter_nightly
+          name: ${{ github.event.repository.name }}_nightly
           path: |
             *
             !*.git*
