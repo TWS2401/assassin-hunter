@@ -5,10 +5,8 @@
 # particle flame ^ ^0.35 ^ 0 0 0 0 1 force
 # particle flame ^ ^-0.35 ^ 0 0 0 0 1 force
 
-# Check for collisions with players (account for volume selector expanding in positive x and z axis)
-execute as @s[y_rotation=-135..45] positioned ~-1 ~ ~-1 if entity @p[team=Hunters,dy=0] run tag @s add hit_player
-execute as @s[y_rotation=-180..-136] if entity @p[team=Hunters,dy=0] run tag @s add hit_player
-execute as @s[y_rotation=46..180] if entity @p[team=Hunters,dy=0] run tag @s add hit_player
+# Check for collisions with players
+execute positioned ~-.99 ~-.99 ~-.99 if entity @a[team=Hunters,dy=0] positioned ~.99 ~.99 ~.99 if entity @a[team=Hunters,dy=0] run tag @s add hit_player
 
 # Check for collisions with blocks
 execute unless block ~ ~ ~ #assassin:ray_permeable run tag @s add hit_block
@@ -40,7 +38,7 @@ execute if score @s RayHitD matches ..0 run scoreboard players reset @s RayHitD
 scoreboard players remove @s RaycastSteps 1
 
 # Recurse until we hit something or run out of steps
-execute as @s[tag=!hit_player,tag=!hit_block,scores={RaycastSteps=1..}] positioned ^ ^ ^0.25 run function assassin:ray/movefine
+execute as @s[tag=!hit_player,tag=!hit_block,scores={RaycastSteps=1..}] positioned ^ ^ ^0.125 run function assassin:ray/movefine
 
 # If player was hit
 execute if entity @s[tag=hit_player,tag=!hit_block,tag=!hit_block_check] as @p[team=Hunters,tag=!frozen] run function assassin:freeze

@@ -3,7 +3,7 @@
 execute unless entity @p[team=Hunters,distance=..100] run return fail
 
 # Initialize steps
-scoreboard players set @s RaycastSteps 200
+scoreboard players set @s RaycastSteps 400
 
 tag @s remove hit_block
 tag @s remove hit_block_check
@@ -13,7 +13,7 @@ tag @s remove hit_player
 execute at @s anchored eyes run function assassin:ray/move
 
 # Check for blocks
-scoreboard players set @s RaycastSteps 400
+scoreboard players set @s RaycastSteps 800
 
 scoreboard players reset @s RayHitL
 scoreboard players reset @s RayHitR
