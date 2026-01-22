@@ -22,9 +22,7 @@ execute as @s[tag=!hit_block] unless block ^ ^-0.35 ^ #assassin:ray_permeable ru
 
 # Check against previous block hits
 execute as @s[tag=!hit_block] if score @s RayHitL matches 1.. if score @s RayHitR matches 1.. run tag @s add hit_block
-execute as @s[tag=!hit_block] if score @s RayHitR matches 1.. if score @s RayHitL matches 1.. run tag @s add hit_block
 execute as @s[tag=!hit_block] if score @s RayHitU matches 1.. if score @s RayHitD matches 1.. run tag @s add hit_block
-execute as @s[tag=!hit_block] if score @s RayHitD matches 1.. if score @s RayHitU matches 1.. run tag @s add hit_block
 
 # Remove previous raycast history
 scoreboard players remove @s RayHitL 1
@@ -42,7 +40,7 @@ execute if score @s RayHitD matches ..0 run scoreboard players reset @s RayHitD
 scoreboard players remove @s RaycastSteps 1
 
 # If player was hit
-execute if entity @s[tag=hit_player,tag=!hit_block,tag=!hit_block_check] as @a[team=Hunters,tag=ray_hit,tag=!frozen] run function assassin:freeze
+execute if entity @s[tag=hit_player,tag=!hit_block] as @a[team=Hunters,tag=ray_hit,tag=!frozen] run function assassin:freeze
 
 # Recurse until we hit a block or run out of steps
 execute as @s[tag=!hit_block,scores={RaycastSteps=1..}] if entity @a[team=Hunters,tag=!ray_hit] positioned ^ ^ ^0.125 run function assassin:ray/move

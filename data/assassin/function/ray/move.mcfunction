@@ -22,9 +22,7 @@ execute as @s[tag=!hit_block] unless block ^ ^-0.7 ^ #assassin:ray_permeable run
 
 # Check against previous block hits
 execute as @s[tag=!hit_block] if score @s RayHitL matches 1.. if score @s RayHitR matches 1.. run tag @s add hit_block_check
-execute as @s[tag=!hit_block,tag=!hit_block_check] if score @s RayHitR matches 1.. if score @s RayHitL matches 1.. run tag @s add hit_block_check
 execute as @s[tag=!hit_block,tag=!hit_block_check] if score @s RayHitU matches 1.. if score @s RayHitD matches 1.. run tag @s add hit_block_check
-execute as @s[tag=!hit_block,tag=!hit_block_check] if score @s RayHitD matches 1.. if score @s RayHitU matches 1.. run tag @s add hit_block_check
 
 # Remove previous raycast history
 scoreboard players remove @s RayHitL 1
