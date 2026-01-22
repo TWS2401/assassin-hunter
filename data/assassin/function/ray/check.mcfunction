@@ -22,7 +22,7 @@ scoreboard players reset @s RayHitR
 scoreboard players reset @s RayHitU
 scoreboard players reset @s RayHitD
 
-execute as @s[tag=hit_block_check] anchored eyes run function assassin:ray/movefine
+execute as @s[tag=hit_block_check] at @s anchored eyes run function assassin:ray/movefine
 
 execute as @s[tag=hit_player] run return 1
 
