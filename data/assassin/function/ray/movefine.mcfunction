@@ -43,7 +43,7 @@ scoreboard players remove @s RaycastSteps 1
 execute if entity @s[tag=hit_player,tag=!hit_block] as @a[team=Hunters,tag=ray_hit,tag=!frozen] run function assassin:freeze
 
 # Recurse until we hit a block or run out of steps
-execute as @s[tag=!hit_block,scores={RaycastSteps=1..}] if entity @a[team=Hunters,tag=!ray_hit] positioned ^ ^ ^0.125 run function assassin:ray/move
+execute as @s[tag=!hit_block,scores={RaycastSteps=1..}] if entity @a[team=Hunters,tag=!ray_hit] positioned ^ ^ ^0.125 run function assassin:ray/movefine
 
 # Draw ray (if a player was hit during recursive calls)
 execute as @s[tag=hit_player] run particle dust{color:[1,0,0],scale:0.2} ~ ~ ~ 0 0 0 0 1 force
