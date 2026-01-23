@@ -1,4 +1,4 @@
-execute as @a[team=Runners] unless function assassin:ray/check run function assassin:unfreeze
+execute as @a[team=Runners,gamemode=!spectator] unless function assassin:ray/check run function assassin:unfreeze
 
 execute as @a[team=Hunters,tag=frozen] run function assassin:freezetick
 

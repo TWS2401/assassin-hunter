@@ -9,7 +9,7 @@
 tag @a remove ray_hit
 
 # Check for collisions with players
-execute positioned ~-.99 ~-.99 ~-.99 as @a[team=Hunters,dy=0] positioned ~.99 ~.99 ~.99 as @s[dy=0] run tag @s add ray_hit
+execute positioned ~-.99 ~-.99 ~-.99 as @a[team=Hunters,gamemode=!spectator,dy=0] positioned ~.99 ~.99 ~.99 as @s[dy=0] run tag @s add ray_hit
 execute if entity @a[team=Hunters,tag=ray_hit] run tag @s add hit_player
 
 # Check for collisions with blocks
